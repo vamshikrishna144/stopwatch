@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import './controls.css';
+import { Button } from 'antd';
+import 'antd/dist/antd.css';
 
 class Controls extends Component {
 
@@ -11,30 +13,31 @@ class Controls extends Component {
         return (
             <div className="Controls">
                 { !isRunning ?
-                    <button
+                    <Button
                         onClick={ start }
+                        type='primary'
                         className="Controls__button"
-                        ref="startBtn" > Start </button>
+                        ref="startBtn" > Start </Button>
                     : null }
 
                 { isRunning ?
-                    <button
+                    <Button
                         onClick={ stop }
                         className="Controls__button"
-                        ref="stopBtn" > Stop </button>
+                        ref="stopBtn" > Stop </Button>
                     : null }
 
-                <button
+                <Button
                     onClick={ reset }
                     disabled={ isRunning }
                     className="Controls__button"
-                    ref="resetBtn" > Reset </button>
+                    ref="resetBtn" > Reset </Button>
 
-                <button
+                <Button
                     onClick={ addLapTime }
                     disabled={ !isRunning }
                     className="Controls__button"
-                    ref="lapBtn" > Lap Time </button>
+                    ref="lapBtn" > Lap Time </Button>
             </div>
         );
     }
